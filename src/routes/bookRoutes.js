@@ -1,5 +1,6 @@
 const express =require("express");
 const booksRouter=express.Router();
+const Bookdata=require('../model/bookData');
 
 function router(nav){
     var books=[
@@ -27,20 +28,30 @@ function router(nav){
     
     ];
     booksRouter.get('/',function(req,res){
-        res.render("books",{
-          nav,
-           title:"Library",
-            books
-        });
+        Bookdata.find()
+        .then(function(books){
+            res.render("books",{
+                nav,
+                 title:"Library",
+                  books
+                });
+
+        })
+        
+       
     });
-    //url accessing i using colon 
+    //url accessing id using colon 
     booksRouter.get('/:id',function(req,res){
        const id= req.params.id
+       Bookdata.findOne({_id:id})
+       .then(function(book){
         res.render('book',{
             nav,
             title:"Library",
-            book:books[id] 
+            book
         });
+       })
+       
     });
     return booksRouter;
 }
