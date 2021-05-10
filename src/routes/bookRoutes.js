@@ -3,30 +3,30 @@ const booksRouter=express.Router();
 const Bookdata=require('../model/bookData');
 
 function router(nav){
-    var books=[
-        {
-           title:"Alchemist",
-           author:"Paulo coelo",
-           genre:"fiction",
-           img:"b1.jpg"
+    // var books=[
+    //     {
+    //        title:"Alchemist",
+    //        author:"Paulo coelo",
+    //        genre:"fiction",
+    //        img:"b1.jpg"
         
-        },
-        {
-            title:"Time Machine",
-            author:"H.G. Wells",
-            genre:"fiction",
-            img:"b2.jpg"
+    //     },
+    //     {
+    //         title:"Time Machine",
+    //         author:"H.G. Wells",
+    //         genre:"fiction",
+    //         img:"b2.jpg"
          
-         },
-         {
-            title:"The diary of a young girl",
-            author:"Ann Frank",
-            genre:"Biography",
-            img:"b3.jpg"
+    //      },
+    //      {
+    //         title:"The diary of a young girl",
+    //         author:"Ann Frank",
+    //         genre:"Biography",
+    //         img:"b3.jpg"
          
-         }
+    //      }
     
-    ];
+    // ];
     booksRouter.get('/',function(req,res){
         Bookdata.find()
         .then(function(books){

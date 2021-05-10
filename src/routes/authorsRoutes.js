@@ -30,16 +30,15 @@ function router(nav){
             authors
         });
     });
-
-
+    
     authorsRouter.get('/:id',function(req,res){
         const id= req.params.id
          Bookdata.findOne({_id:id})
-         .then(function(authors){
+         .then(function(author){
             res.render('author',{
                 nav,
                 title:"Library",
-                authors
+                author
             });
 
          })
